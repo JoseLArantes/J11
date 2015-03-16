@@ -1,5 +1,9 @@
 package ime.lists;
 
+/**
+ * @author joseluiz
+ *
+ */
 public class ListaArrayObjects {
 	private Object[] lista;
 	private int ultimo = 0;
@@ -44,19 +48,21 @@ public class ListaArrayObjects {
 			throw (new ArrayIndexOutOfBoundsException("Posição Inválida!!"));
 		} else {
 			if (this.ultimo + 1 > this.lista.length) {
-				System.out.println("Criando novo array ******"+this.lista.length);
+				System.out.println("Criando novo array ******");
 				ListaArrayObjects novoArray = new ListaArrayObjects(
 						this.lista.length * 2);
 				for (int y = 0; y < this.lista.length; y++) {
 					novoArray.lista[y] = this.lista[y];
 				}
 				this.lista = novoArray.lista;
+				this.ultimo--;
 			}
-				this.ultimo++;
-				for (int x = this.ultimo; x > posicao; x--) {
-					this.lista[x] = this.lista[x - 1];
-				}
-				this.lista[posicao] = aluno;
+
+			this.ultimo++;
+			for (int x = this.ultimo; x > posicao; x--) {
+				this.lista[x] = this.lista[x - 1];
+			}
+			this.lista[posicao] = aluno;
 			
 		}
 	}
@@ -69,25 +75,35 @@ class TestaListaArrayObjects {
 		// Alunos aluno1 = new Alunos("Anabel", 15);
 
 		ListaAlunos.inserirNoInicio(new Alunos("Anabel", 15));
-		ListaAlunos.inserirNoInicio(new Alunos("Bernardo", 12));
-		ListaAlunos.inserirNoInicio(new Alunos("Carlos", 16));
-		ListaAlunos.inserirNoInicio(new Alunos("Darlei", 18));
-		ListaAlunos.inserirNoInicio(new Alunos("Darlei2", 18));
-		ListaAlunos.inserirNoInicio(new Alunos("Darlei3", 18));
-		ListaAlunos.inserirNoInicio(new Alunos("Darlei4", 18));
+
+		ListaAlunos.inserirNoInicio(new Alunos("Barbaro", 15));
+
 		System.out.println(ListaAlunos 	);
 		try {
 			ListaAlunos.inserirPosicao(new Alunos("Emanuel", 12), 2);
 		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println(e.getMessage());
+		System.out.println(e.getMessage());
 		}
-		try {
-			ListaAlunos.inserirPosicao(new Alunos("Emanuel", 12), 2);
-		} catch (ArrayIndexOutOfBoundsException e) {
-			System.out.println(e.getMessage());
-		}
+
+		ListaAlunos.inserirNoInicio(new Alunos("Barbaro", 15));
+
+		ListaAlunos.inserirNoInicio(new Alunos("Barbaro", 15));
+
+		ListaAlunos.inserirNoInicio(new Alunos("Barbaro", 15));
+
+		ListaAlunos.inserirNoInicio(new Alunos("Barbaro", 15));
+		
+		
+		System.out.println(ListaAlunos);
+		//try {
+			ListaAlunos.inserirPosicao(new Alunos("Emanuel", 12), 5);
+	//	} catch (ArrayIndexOutOfBoundsException e) {
+		//System.out.println(e.getMessage());
+		//}
+
+			ListaAlunos.inserirNoInicio(new Alunos("Barbaro", 99));
 
 		System.out.println(ListaAlunos);
-
+		
 	}
 }
