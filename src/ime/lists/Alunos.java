@@ -32,5 +32,4 @@ public class Alunos{
 	public String toString(){
 		return this.nome;
 	}
-	
 }

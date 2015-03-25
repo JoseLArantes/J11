@@ -17,6 +17,13 @@ public class DListNode {
 		this.next = next;
 	}
 	
+	public DListNode getPrev(){
+		return this.prev;
+	}
+	public void setPrev(DListNode prev){
+		this.prev = prev;
+	}
+	
 	public DListNode getNext (){
 		return this.next;
 	}
